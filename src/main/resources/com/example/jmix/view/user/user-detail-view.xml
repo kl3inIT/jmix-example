@@ -58,6 +58,7 @@
             </hbox>
         <dataGrid id="stepsDataGrid" dataContainer="stepsDc" width="100%" height="100%">
             <columns>
+                <column key="completed" sortable="false" width="4em" flexGrow="0"/>
                 <column property="step.name"/>
                 <column property="dueDate"/>
                 <column property="completedDate"/>
