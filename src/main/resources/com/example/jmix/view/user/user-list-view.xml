@@ -5,7 +5,9 @@
     <data>
         <collection id="usersDc"
                     class="com.example.jmix.entity.User">
-            <fetchPlan extends="_base"/>
+            <fetchPlan extends="_base">
+                <property name="department" fetchPlan="_base"/>
+            </fetchPlan>
             <loader id="usersDl" readOnly="true">
                 <query>
                     <![CDATA[select e from User e order by e.username]]>
@@ -65,6 +67,8 @@
                 <column property="timeZoneId"/>
                 <column property="active"/>
                 <column property="onboardingStatus"/>
+                <column property="department"/>
+                <column property="joiningDate"/>
             </columns>
         </dataGrid>
         <hbox id="lookupActions" visible="false">
