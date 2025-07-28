@@ -52,10 +52,17 @@
             <select id="onboardingStatusField" property="onboardingStatus"/>
             <entityComboBox id="departmentField" property="department" itemsContainer="departmentsDc"/>
             <datePicker id="joiningDateField" property="joiningDate"/>
+            <details summaryText="Picture">
+                <hbox>
+                    <fileStorageUploadField id="pictureField" dataContainer="userDc" property="picture"/>
+                    <image id="image" property="picture" dataContainer="userDc" height="10em" width="10em"
+                           classNames="user-picture"/>
+                </hbox>
+            </details>
         </formLayout>
-            <hbox id="stepsButtonsPanel" classNames="buttons-panel">
-                <button id="generateButton" text="Generate"/>
-            </hbox>
+        <hbox id="stepsButtonsPanel" classNames="buttons-panel">
+            <button id="generateButton" text="Generate"/>
+        </hbox>
         <dataGrid id="stepsDataGrid" dataContainer="stepsDc" width="100%" height="100%">
             <columns>
                 <column key="completed" sortable="false" width="4em" flexGrow="0"/>
