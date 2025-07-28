@@ -67,6 +67,7 @@ public class User implements JmixUserDetails, HasTimeZone {
     @ManyToOne(fetch = FetchType.LAZY)
     private Department department;
 
+    @OrderBy("sortValue")
     @Composition
     @OneToMany(mappedBy = "user")
     private List<UserStep> steps;

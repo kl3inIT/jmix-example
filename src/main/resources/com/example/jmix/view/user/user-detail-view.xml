@@ -16,7 +16,11 @@
                   class="com.example.jmix.entity.User">
             <fetchPlan extends="_base">
                 <property name="department" fetchPlan="_base"/>
-                <property name="steps" fetchPlan="_base"/>
+                <property name="steps" fetchPlan="_base">
+                    <property name="step" fetchPlan="_base">
+                        <property name="name"/>
+                    </property>
+                </property>
             </fetchPlan>
             <loader/>
             <collection id="stepsDc" property="steps"/>
@@ -54,9 +58,9 @@
             </hbox>
         <dataGrid id="stepsDataGrid" dataContainer="stepsDc" width="100%" height="100%">
             <columns>
+                <column property="step.name"/>
                 <column property="dueDate"/>
                 <column property="completedDate"/>
-                <column property="sortValue"/>
             </columns>
         </dataGrid>
         <hbox id="detailActions">
