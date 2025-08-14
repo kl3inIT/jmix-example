@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="Airbyte Sources"
+      focusComponent="sourcesDataGrid">
+    <data>
+        <collection id="sourcesDc"
+                    class="com.example.jmix.entity.SourceDTO"
+                    fetchPlan="_local">
+            <loader id="sourcesDl"/>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+        </urlQueryParameters>
+    </facets>
+    <layout>
+        <hbox id="headerBox" spacing="true" alignItems="CENTER">
+            <span id="healthStatusLabel" text="Airbyte Status: Unknown"/>
+            <span id="totalSourcesLabel" text="Total Sources: 0"/>
+            <button id="refreshButton" text="Refresh"/>
+        </hbox>
+
+        <genericFilter id="genericFilter"
+                       dataLoader="sourcesDl"
+                       autoApply="true"/>
+
+        <dataGrid id="sourcesDataGrid"
+                  dataContainer="sourcesDc"
+                  width="100%"
+                  minHeight="20em"
+                  columnReorderingAllowed="true">
+            <columns resizable="true">
+                <column property="name" width="200px"/>
+                <column property="sourceId" width="250px"/>
+                <column property="sourceType" width="150px"/>
+                <column property="workspaceId" width="200px"/>
+            </columns>
+        </dataGrid>
+
+    </layout>
+</view>
